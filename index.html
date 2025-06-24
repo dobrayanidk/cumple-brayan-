@@ -32,7 +32,7 @@
       padding: 30px;
       box-shadow: 0 0 15px #00fff7;
       max-width: 700px;
-      margin: 40px auto 80px;
+      margin: 40px auto;
     }
 
     .contenedor p {
@@ -56,7 +56,6 @@
       margin-top: 20px;
       box-shadow: 0 0 15px #00fff7;
       transition: background 0.3s;
-      cursor: pointer;
     }
 
     .boton:hover {
@@ -77,14 +76,14 @@
     }
 
     .tarjeta {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid #00fff7;
+      background: rgba(0, 0, 0, 0.6);
+      border: 2px solid #00fff7;
       border-radius: 15px;
-      padding: 10px;
-      box-shadow: 0 0 10px #00fff7;
+      padding: 15px;
+      box-shadow: 0 0 15px #00fff7;
       opacity: 0;
       transform: translateY(30px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      transition: opacity 0.5s ease, transform 0.5s ease;
     }
 
     .tarjeta.visible {
@@ -93,156 +92,109 @@
     }
 
     .tarjeta:hover {
+      box-shadow: 0 0 25px #00fff7, 0 0 40px #00fff7;
       transform: scale(1.05);
+      cursor: pointer;
     }
 
     .foto {
       width: 100%;
-      border-radius: 10px;
+      border-radius: 12px;
       margin-bottom: 10px;
-      object-fit: cover;
-      height: 160px;
+      box-shadow: 0 0 10px #00fff7;
     }
 
     h3 {
-      margin: 10px 0 5px;
       color: #00fff7;
+      margin-bottom: 5px;
+      font-size: 1.2em;
     }
 
     p {
-      font-size: 14px;
+      color: #ffccff;
+      font-size: 1em;
+      text-shadow: 0 0 5px #ffccff;
+      margin: 0;
+    }
+
+    /* Responsive móvil */
+    @media (max-width: 600px) {
+      .padrinos {
+        grid-template-columns: 1fr;
+      }
+      .contenedor p {
+        font-size: 18px;
+      }
+      .boton {
+        font-size: 18px;
+        padding: 12px 25px;
+      }
+      .titulo {
+        font-size: 30px;
+        margin-top: 20px;
+      }
+      h2 {
+        margin-top: 40px;
+        font-size: 1.5em;
+      }
     }
 
     /* Globos animados */
     .globo {
       position: fixed;
       bottom: -150px;
-      width: 50px;
-      height: 70px;
-      background: linear-gradient(135deg, #ff0080, #7928ca);
+      background: radial-gradient(circle at 30% 30%, #00fff7, #008080);
+      width: 40px;
+      height: 60px;
       border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-      box-shadow: 0 5px 15px rgba(255, 0, 128, 0.6);
+      box-shadow: 0 0 10px #00fff7;
+      animation: subir 10s linear infinite;
       opacity: 0.8;
-      animation-name: subir;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
-      z-index: 1;
+      z-index: 9999;
     }
-
     .globo::after {
       content: '';
       position: absolute;
-      bottom: -15px;
+      bottom: -10px;
       left: 50%;
       width: 2px;
       height: 15px;
-      background: #fff;
+      background: #00fff7;
       transform: translateX(-50%);
-      border-radius: 1px;
+      border-radius: 2px;
+      box-shadow: 0 0 10px #00fff7;
     }
-
     @keyframes subir {
       0% {
-        transform: translateY(0) rotate(0deg);
+        transform: translateY(0) scale(1);
         opacity: 0.8;
       }
       100% {
-        transform: translateY(-110vh) rotate(360deg);
+        transform: translateY(-110vh) scale(1.2);
         opacity: 0;
-      }
-    }
-
-    /* Diferentes colores y posiciones para globos */
-    .globo:nth-child(1) {
-      left: 10%;
-      animation-duration: 12s;
-      background: linear-gradient(135deg, #ff0080, #7928ca);
-    }
-    .globo:nth-child(2) {
-      left: 25%;
-      animation-duration: 15s;
-      background: linear-gradient(135deg, #00fff7, #005f6b);
-    }
-    .globo:nth-child(3) {
-      left: 40%;
-      animation-duration: 14s;
-      background: linear-gradient(135deg, #ffcc00, #ff9900);
-    }
-    .globo:nth-child(4) {
-      left: 60%;
-      animation-duration: 16s;
-      background: linear-gradient(135deg, #ff0066, #cc0033);
-    }
-    .globo:nth-child(5) {
-      left: 75%;
-      animation-duration: 13s;
-      background: linear-gradient(135deg, #00ffea, #00675b);
-    }
-    .globo:nth-child(6) {
-      left: 85%;
-      animation-duration: 17s;
-      background: linear-gradient(135deg, #ff00cc, #7a0040);
-    }
-
-    /* Cuenta regresiva */
-    #countdown {
-      font-size: 28px;
-      margin: 25px 0;
-      color: #00fff7;
-      text-shadow: 0 0 10px #00fff7;
-      font-weight: 700;
-    }
-
-    /* Responsive */
-    @media(max-width: 750px) {
-      .padrinos {
-        grid-template-columns: 1fr !important;
-        gap: 15px;
-      }
-      .tarjeta {
-        opacity: 1 !important;
-        transform: none !important;
-        transition: none !important;
-      }
-      .foto {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-      }
-      .contenedor {
-        margin: 20px 10px 60px;
-        padding: 20px;
-      }
-      .titulo {
-        font-size: 30px;
-        margin-top: 20px;
-      }
-      .boton {
-        font-size: 18px;
-        padding: 12px 25px;
-      }
-      #countdown {
-        font-size: 22px;
-        margin: 15px 0;
       }
     }
   </style>
 </head>
 <body>
+
   <div class="titulo">estás invitado a mi cumpleaños 🎉</div>
 
   <div class="contenedor">
     <p>📆 <strong>Fecha:</strong><br>26 de julio de 2025</p>
-    <p>🕔 <strong>Hora:</strong><br>Desde las 5:00 PM</p>
+    <p>🕕 <strong>Hora:</strong><br>Desde las 5:00 PM</p>
     <p>📍 <strong>Ubicación:</strong><br>C. Nicolás Bravo 41, Loma Bonita, Neza</p>
 
-    <div id="countdown">Cargando cuenta regresiva...</div>
-
-    <a class="boton" href="https://maps.google.com/maps?q=19.368506,-98.988997" target="_blank" rel="noopener noreferrer">Ver ubicación en Google Maps 🗺️</a>
+    <a class="boton" href="https://maps.google.com/maps?q=19.368506,-98.988997" target="_blank" rel="noopener noreferrer">
+      Ver ubicación en Google Maps 🗺️
+    </a>
 
     <p>🎽 <strong>Dress code:</strong><br>Formal con flow 💅</p>
 
     <a class="boton" href="https://wa.me/5215561069597" target="_blank" rel="noopener noreferrer">Confirmar asistencia 🎟️</a>
+
+    <h2>Cuenta regresiva ⏳</h2>
+    <div id="countdown" style="font-size: 32px; color: #00fff7; text-shadow: 0 0 10px #00fff7;"></div>
 
     <h2>Padrinos 🌟</h2>
     <div class="padrinos" id="padrinos">
@@ -261,69 +213,65 @@
     </div>
   </div>
 
-  <!-- Globos -->
-  <div class="globo"></div>
-  <div class="globo"></div>
-  <div class="globo"></div>
-  <div class="globo"></div>
-  <div class="globo"></div>
-  <div class="globo"></div>
-
+  <!-- Globos animados -->
   <script>
+    function crearGlobo() {
+      const globo = document.createElement('div');
+      globo.classList.add('globo');
+      globo.style.left = Math.random() * 100 + 'vw';
+      globo.style.animationDuration = 8 + Math.random() * 7 + 's';
+      document.body.appendChild(globo);
+      setTimeout(() => {
+        globo.remove();
+      }, 15000);
+    }
+    setInterval(crearGlobo, 800);
+
+    // Aparición secuencial padrinos con Intersection Observer
+    const padrinosSection = document.getElementById('padrinos');
+    const tarjetas = padrinosSection.querySelectorAll('.tarjeta');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tarjetas.forEach((tarjeta, i) => {
+            setTimeout(() => {
+              tarjeta.classList.add('visible');
+            }, i * 300);
+          });
+        } else {
+          tarjetas.forEach(tarjeta => tarjeta.classList.remove('visible'));
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(padrinosSection);
+
     // Cuenta regresiva
     const countdownElement = document.getElementById('countdown');
-    // Fecha y hora del evento (26 de julio de 2025, 17:00)
+    // Fecha y hora del evento (26 julio 2025, 5:00 PM)
     const eventDate = new Date('2025-07-26T17:00:00');
 
-    function updateCountdown() {
+    function actualizarCuentaRegresiva() {
       const now = new Date();
       const diff = eventDate - now;
 
       if (diff <= 0) {
-        countdownElement.textContent = '¡La fiesta ya comenzó! 🎉';
-        clearInterval(intervalId);
+        countdownElement.textContent = "¡La fiesta ya comenzó! 🎉";
+        clearInterval(intervalo);
         return;
       }
 
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
+      const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutos = Math.floor((diff / (1000 * 60)) % 60);
+      const segundos = Math.floor((diff / 1000) % 60);
 
-      countdownElement.textContent =
-        `Faltan ${days}d ${hours}h ${minutes}m ${seconds}s para la fiesta`;
+      countdownElement.textContent = `${dias}d ${horas}h ${minutos}m ${segundos}s`;
     }
 
-    updateCountdown();
-    const intervalId = setInterval(updateCountdown, 1000);
-
-    // Animación de padrinos
-    const isMobile = window.matchMedia("(max-width: 750px)").matches;
-
-    if (!isMobile) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const tarjetas = entry.target.querySelectorAll('.tarjeta');
-            tarjetas.forEach((tarjeta, index) => {
-              setTimeout(() => {
-                tarjeta.classList.add('visible');
-              }, index * 300);
-            });
-          } else {
-            const tarjetas = entry.target.querySelectorAll('.tarjeta');
-            tarjetas.forEach((tarjeta) => {
-              tarjeta.classList.remove('visible');
-            });
-          }
-        });
-      }, { threshold: 0.3 });
-
-      observer.observe(document.getElementById('padrinos'));
-    } else {
-      // En móvil, las tarjetas siempre visibles
-      document.querySelectorAll('.tarjeta').forEach(t => t.classList.add('visible'));
-    }
+    const intervalo = setInterval(actualizarCuentaRegresiva, 1000);
+    actualizarCuentaRegresiva();
   </script>
 </body>
 </html>
