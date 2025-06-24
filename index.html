@@ -2,231 +2,275 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Fiestón Neón de Kevin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Invitación de Cumpleaños 🎉</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364);
-      background-size: 400% 400%;
-      animation: fondoGlow 20s ease infinite;
-      color: #fdfdfd;
-      overflow-x: hidden;
-      opacity: 0;
-      animation: fadeIn 1.2s ease-out forwards;
-    }
-
-    @keyframes fondoGlow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
-
-    .contenedor {
-      padding: 40px 20px;
-      max-width: 960px;
-      margin: auto;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-    }
-
-    .titulo {
-      font-size: 46px;
-      color: #00fff7;
-      text-shadow: 0 0 10px #00fff7, 0 0 20px #0ff;
-      display: inline-block;
-      overflow: hidden;
-      white-space: nowrap;
-      border-right: 2px solid #0ff;
-      animation: escribir 4s steps(40, end) 1 normal both, parpadear 0.75s step-end infinite;
-    }
-
-    @keyframes escribir {
-      from { width: 0; }
-      to { width: 100%; }
-    }
-
-    @keyframes parpadear {
-      from, to { border-color: transparent; }
-      50% { border-color: #0ff; }
-    }
-
-    .detalle {
-      font-size: 20px;
-      margin: 10px 0;
+      background: linear-gradient(135deg, #000000, #1a1a1a);
       color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
     }
-
-    .boton {
-      background: linear-gradient(to right, #ff00cc, #3333ff);
-      color: white;
-      padding: 14px 28px;
-      border-radius: 50px;
-      font-size: 18px;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 25px;
-      box-shadow: 0 0 10px #ff00cc;
-      transition: transform 0.2s ease-in-out;
+    .titulo {
+      font-size: 40px;
+      color: #00fff7;
+      text-shadow: 0 0 15px #00fff7;
+      margin-top: 40px;
     }
-
-    .boton:hover {
-      transform: scale(1.05);
-    }
-        .padrinos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 30px;
-      margin-top: 60px;
-    }
-
-    .tarjeta {
+    .contenedor {
       background: rgba(0, 0, 0, 0.4);
-      border-radius: 20px;
-      padding: 20px;
       border: 2px solid #00fff7;
+      border-radius: 20px;
+      padding: 30px;
       box-shadow: 0 0 15px #00fff7;
+      max-width: 700px;
+      margin: 40px auto;
+    }
+    .contenedor p {
+      font-size: 22px;
+      margin: 12px 0;
+    }
+    strong {
+      color: #00fff7;
+    }
+    .boton {
+      display: inline-block;
+      background: #00fff7;
+      color: #000;
+      padding: 15px 30px;
+      border-radius: 30px;
+      font-size: 20px;
+      font-weight: bold;
+      text-decoration: none;
+      margin-top: 20px;
+      box-shadow: 0 0 15px #00fff7;
+      transition: background 0.3s;
+    }
+    .boton:hover {
+      background: #0ff;
+    }
+    h2 {
+      margin-top: 60px;
+      color: #ffccff;
+      text-shadow: 0 0 10px #ffccff;
+    }
+    .padrinos {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .tarjeta {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #00fff7;
+      border-radius: 15px;
+      padding: 10px;
+      box-shadow: 0 0 10px #00fff7;
       opacity: 0;
       transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     }
-
     .tarjeta.visible {
-      animation: aparecer 0.8s ease forwards;
+      opacity: 1;
+      transform: translateY(0);
     }
-
-    .tarjeta.visible.delay-1 { animation-delay: 0.2s; }
-    .tarjeta.visible.delay-2 { animation-delay: 0.4s; }
-    .tarjeta.visible.delay-3 { animation-delay: 0.6s; }
-    .tarjeta.visible.delay-4 { animation-delay: 0.8s; }
-    .tarjeta.visible.delay-5 { animation-delay: 1s; }
-    .tarjeta.visible.delay-6 { animation-delay: 1.2s; }
-    .tarjeta.visible.delay-7 { animation-delay: 1.4s; }
-    .tarjeta.visible.delay-8 { animation-delay: 1.6s; }
-    .tarjeta.visible.delay-9 { animation-delay: 1.8s; }
-    .tarjeta.visible.delay-10 { animation-delay: 2s; }
-    .tarjeta.visible.delay-11 { animation-delay: 2.2s; }
-    .tarjeta.visible.delay-12 { animation-delay: 2.4s; }
-
-    @keyframes aparecer {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .tarjeta:hover {
+      transform: scale(1.05);
     }
-
     .foto {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #ff00cc;
-      box-shadow: 0 0 10px #ff00cc;
-      margin-bottom: 15px;
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
     }
-
     h3 {
-      margin: 10px 0 5px 0;
-      color: #0ff;
-      text-shadow: 0 0 5px #0ff;
+      margin: 10px 0 5px;
+      color: #00fff7;
     }
-
+    p {
+      font-size: 14px;
+    }
+    /* Globos animados */
     .globo {
-      position: absolute;
-      bottom: -120px;
+      position: fixed;
+      bottom: -100px;
       width: 40px;
       height: 60px;
-      border-radius: 50% 50% 45% 45%;
-      opacity: 0.5;
-      animation: flotar 12s linear infinite;
-      z-index: 0;
-      filter: drop-shadow(0 0 10px #0ff);
+      background: radial-gradient(circle at 50% 50%, #ff0080, #ff00cc);
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      box-shadow: 0 0 10px #ff00cc;
+      animation-name: flotar;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      opacity: 0.8;
+      z-index: 1000;
     }
-
-    .globo::after {
-      content: '';
-      position: absolute;
-      bottom: -20px;
-      left: 50%;
-      width: 2px;
-      height: 20px;
-      background: #aaa;
-      transform: translateX(-50%);
-    }
-
     @keyframes flotar {
-      0% { transform: translateY(0) translateX(0) rotate(0deg); }
-      100% { transform: translateY(-120vh) translateX(-30px) rotate(360deg); }
+      0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-110vh) translateX(20px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+    /* Posiciones y duración distintas para globos */
+    .globo:nth-child(1) {
+      left: 10%;
+      animation-duration: 12s;
+      background: radial-gradient(circle at 50% 50%, #00ffff, #0080ff);
+      box-shadow: 0 0 10px #0080ff;
+    }
+    .globo:nth-child(2) {
+      left: 30%;
+      animation-duration: 14s;
+      background: radial-gradient(circle at 50% 50%, #ff0080, #ff00cc);
+      box-shadow: 0 0 10px #ff00cc;
+    }
+    .globo:nth-child(3) {
+      left: 50%;
+      animation-duration: 16s;
+      background: radial-gradient(circle at 50% 50%, #ffff00, #ffcc00);
+      box-shadow: 0 0 10px #ffcc00;
+    }
+    .globo:nth-child(4) {
+      left: 70%;
+      animation-duration: 13s;
+      background: radial-gradient(circle at 50% 50%, #00ff00, #008000);
+      box-shadow: 0 0 10px #008000;
+    }
+    .globo:nth-child(5) {
+      left: 85%;
+      animation-duration: 15s;
+      background: radial-gradient(circle at 50% 50%, #ff8000, #cc6600);
+      box-shadow: 0 0 10px #cc6600;
+    }
+
+    /* Responsive */
+    @media(max-width: 750px) {
+      .contenedor {
+        margin: 20px;
+        padding: 20px;
+        max-width: 100%;
+      }
+      .titulo {
+        font-size: 30px;
+      }
+      .contenedor p {
+        font-size: 18px;
+      }
+      .boton {
+        font-size: 18px;
+        padding: 12px 25px;
+      }
+      .padrinos {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 15px;
+      }
+      h2 {
+        margin-top: 40px;
+        font-size: 22px;
+      }
+    }
+    /* Cuenta regresiva */
+    #countdown {
+      margin: 20px 0 40px;
+      font-size: 24px;
+      color: #00fff7;
+      text-shadow: 0 0 10px #00fff7;
+      font-weight: 700;
     }
   </style>
 </head>
 <body>
-<script>
-  for (let i = 0; i < 25; i++) {
-    const g = document.createElement('div');
-    g.className = 'globo';
-    const colores = ['#ff00cc', '#00fff7', '#ffcc00', '#33ff57', '#3388ff'];
-    g.style.background = `radial-gradient(circle, white 10%, ${colores[i % colores.length]} 90%)`;
-    g.style.left = Math.random() * 100 + 'vw';
-    g.style.width = 40 + Math.random() * 15 + 'px';
-    g.style.height = 60 + Math.random() * 20 + 'px';
-    g.style.animationDelay = Math.random() * 10 + 's';
-    g.style.animationDuration = 8 + Math.random() * 6 + 's';
-    document.body.appendChild(g);
-  }
-</script>
 
-<div style="background: rgba(0,0,0,0.4); border: 2px solid #00fff7; border-radius: 20px; padding: 30px; box-shadow: 0 0 15px #00fff7; max-width: 700px; margin: 40px auto;">
-  <p style="font-size: 22px; margin: 12px 0;"><center>  📆 <strong style="color:#00fff7;"><center>Fecha:</strong><center> 26 de julio de 2025</center></p>
-  <p style="font-size: 22px; margin: 12px 0;">🕕 <strong style="color:#00fff7;">Hora:</strong> <center>Desde las 6:00 PM</center></p>
-  <p style="font-size: 22px; margin: 12px 0;">📍 <strong style="color:#00fff7;">Ubicación:</strong> <center>C. Nicolás Bravo 41, Loma Bonita, Neza</center></p>
-  <!-- Mapa interactivo -->
-<div style="margin: 40px auto; max-width: 700px; border: 2px solid #00fff7; border-radius: 15px; overflow: hidden; box-shadow: 0 0 15px #00fff7;">
-  <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3761.410822470615!2d-99.0064729851176!3d19.480184342472175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fddf678c5f27%3A0x1c3553bd0a65a2ae!2sC.%20Nicol%C3%A1s%20Bravo%2041%2C%20Loma%20Bonita%2C%20Nezahualc%C3%B3yotl%2C%20M%C3%A9x.!5e0!3m2!1ses!2smx!4v1685592952941!5m2!1ses!2smx"
-    width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade">
-  </iframe>
-</div>
-  <p style="font-size: 22px; margin: 12px 0;">🎽 <strong style="color:#00fff7;">Vestimenta:</center></strong> <center>Formal con flow 💅</center></p>
+  <!-- Globos animados -->
+  <div class="globo"></div>
+  <div class="globo"></div>
+  <div class="globo"></div>
+  <div class="globo"></div>
+  <div class="globo"></div>
 
-  <a class="boton" href="https://wa.me/5215561069597" target="_blank"><center>Confirmar asistencia 🎟️</center></a>
+  <div class="titulo">estás invitado a mi cumpleaños 🎉</div>
 
-  <h2 style="margin-top:60px; color:#ffccff; text-shadow:0 0 10px #ffccff;"><CENter>Padrinos  🌟</CENter></h2>
-  <div class="padrinos">
-        <div class="tarjeta delay-1"><img src="miguel.jpg" class="foto"><h3>Miguel Ángel</h3><p>Chef traído desde Italia 🇮🇹</p></div>
-    <div class="tarjeta delay-2"><img src="montserrat.jpg" class="foto"><h3>Montserrat</h3><p>Decoración con clase ✨</p></div>
-    <div class="tarjeta delay-3"><img src="maria.jpg" class="foto"><h3>Maria Elena</h3><p>Salón y bebida 🥂</p></div>
-    <div class="tarjeta delay-4"><img src="erick.jpg" class="foto"><h3>Erick</h3><p>Pastelazo garantizado 🎂</p></div>
-    <div class="tarjeta delay-5"><img src="pepito.jpg" class="foto"><h3>Pepito</h3><p>Botana y animación 🎤</p></div>
-    <div class="tarjeta delay-6"><img src="isi.jpg" class="foto"><h3>Isi</h3><p>Seguridad nivel narco 🕶️</p></div>
-    <div class="tarjeta delay-7"><img src="aratino.jpg" class="foto"><h3>Ara y Tino</h3><p>Opening con fuego 🔥</p></div>
-    <div class="tarjeta delay-8"><img src="hugo.jpg" class="foto"><h3>Hugo</h3><p>Bebidas adulteradas 🥴</p></div>
-    <div class="tarjeta delay-9"><img src="gerardo.jpg" class="foto"><h3>Gerardo</h3><p>Imitador de Northern Tigers 🐯</p></div>
-    <div class="tarjeta delay-10"><img src="mario.jpg" class="foto"><h3>Mario Alberto</h3><p>Organizador estelar 🎬</p></div>
-    <div class="tarjeta delay-11"><img src="guantes.jpg" class="foto"><h3>Guantes y Kamilo</h3><p>Malas copas legendarias 🍻</p></div>
-    <div class="tarjeta delay-12"><img src="magrina.jpg" class="foto"><h3>Magrina Lucha</h3><p>Salsas y frijoles 🔥</p></div>
+  <div class="contenedor">
+    <p>📆 <strong>Fecha:</strong><br>26 de julio de 2025</p>
+    <p>🕕 <strong>Hora:</strong><br>Desde las 5:00 PM</p>
+
+    <div id="countdown">Cargando cuenta regresiva...</div>
+
+    <p>📍 <strong>Ubicación:</strong><br>C. Nicolás Bravo 41, Loma Bonita, Neza</p>
+    <a class="boton" href="https://wa.me/5215561069597" target="_blank" rel="noopener noreferrer">Confirmar asistencia 🎟️</a>
+
+    <h2>Padrinos 🌟</h2>
+    <div class="padrinos" id="padrinos">
+      <div class="tarjeta"><img src="miguel.jpg" class="foto" alt="Miguel Ángel" /><h3>Miguel Ángel</h3><p>Chef traído desde Italia 🇮🇹</p></div>
+      <div class="tarjeta"><img src="montserrat.jpg" class="foto" alt="Montserrat" /><h3>Montserrat</h3><p>Decoración con clase ✨</p></div>
+      <div class="tarjeta"><img src="maria.jpg" class="foto" alt="Maria Elena" /><h3>Maria Elena</h3><p>Salón y bebida 🥂</p></div>
+      <div class="tarjeta"><img src="erick.jpg" class="foto" alt="Erick" /><h3>Erick</h3><p>Pastelazo garantizado 🎂</p></div>
+      <div class="tarjeta"><img src="pepito.jpg" class="foto" alt="Pepito" /><h3>Pepito</h3><p>Botana y animación 🎤</p></div>
+      <div class="tarjeta"><img src="isi.jpg" class="foto" alt="Isi" /><h3>Isi</h3><p>Seguridad nivel narco 🕶️</p></div>
+      <div class="tarjeta"><img src="aratino.jpg" class="foto" alt="Ara y Tino" /><h3>Ara y Tino</h3><p>Opening con fuego 🔥</p></div>
+      <div class="tarjeta"><img src="hugo.jpg" class="foto" alt="Hugo" /><h3>Hugo</h3><p>Bebidas adulteradas 🥴</p></div>
+      <div class="tarjeta"><img src="gerardo.jpg" class="foto" alt="Gerardo" /><h3>Gerardo</h3><p>Imitador de Northern Tigers 🐯</p></div>
+      <div class="tarjeta"><img src="mario.jpg" class="foto" alt="Mario Alberto" /><h3>Mario Alberto</h3><p>Organizador estelar 🎬</p></div>
+      <div class="tarjeta"><img src="guantes.jpg" class="foto" alt="Guantes y Kamilo" /><h3>Guantes y Kamilo</h3><p>Malas copas legendarias 🍻</p></div>
+      <div class="tarjeta"><img src="magrina.jpg" class="foto" alt="Magrina Lucha" /><h3>Magrina Lucha</h3><p>Salsas y frijoles 🔥</p></div>
+    </div>
   </div>
-</div>
 
-<script>
-  // Aparece cada padrino con delay al cargar
-  window.addEventListener('load', () => {
-    document.querySelectorAll('.tarjeta').forEach((card, i) => {
-      setTimeout(() => card.classList.add('visible'), i * 100);
-    });
-  });
+  <script>
+    // Aparición secuencial de padrinos
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const tarjetas = entry.target.querySelectorAll('.tarjeta');
+          tarjetas.forEach((tarjeta, index) => {
+            setTimeout(() => {
+              tarjeta.classList.add('visible');
+            }, index * 300);
+          });
+        } else {
+          const tarjetas = entry.target.querySelectorAll('.tarjeta');
+          tarjetas.forEach((tarjeta) => {
+            tarjeta.classList.remove('visible');
+          });
+        }
+      });
+    }, { threshold: 0.3 });
 
-  // También aparecen si haces scroll
-  window.addEventListener('scroll', () => {
-    const trigger = window.innerHeight * 0.9;
-    document.querySelectorAll('.tarjeta').forEach(card => {
-      const top = card.getBoundingClientRect().top;
-      if (top < trigger) card.classList.add('visible');
-    });
-  });
-</script>
+    observer.observe(document.getElementById('padrinos'));
+
+    // Cuenta regresiva
+    function updateCountdown() {
+      const countdownElement = document.getElementById('countdown');
+      const eventDate = new Date('July 26, 2025 17:00:00').getTime();
+      const now = new Date().getTime();
+      const diff = eventDate - now;
+
+      if (diff <= 0) {
+        countdownElement.innerHTML = "¡La fiesta ya comenzó! 🎉";
+        clearInterval(interval);
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      countdownElement.innerHTML =
+        `Faltan <strong>${days}</strong> días, <strong>${hours}</strong> horas, <strong>${minutes}</strong> minutos y <strong>${seconds}</strong> segundos`;
+    }
+
+    const interval = setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
