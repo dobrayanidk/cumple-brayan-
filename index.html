@@ -88,6 +88,33 @@
       cursor: default;
     }
 
+    /* Por defecto, en móvil, las tarjetas estarán visibles sin animación */
+    @media (max-width: 600px) {
+      .padrinos {
+        grid-template-columns: 1fr;
+      }
+      .tarjeta {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+      .contenedor p {
+        font-size: 18px;
+      }
+      .boton {
+        font-size: 18px;
+        padding: 12px 26px;
+      }
+      .titulo {
+        font-size: 32px;
+        margin-top: 25px;
+      }
+      h2 {
+        margin-top: 45px;
+        font-size: 1.6em;
+      }
+    }
+
     .tarjeta.visible {
       opacity: 1;
       transform: translateY(0);
@@ -117,28 +144,6 @@
       color: #065f46;
       font-size: 1em;
       margin: 0;
-    }
-
-    /* Responsive móvil */
-    @media (max-width: 600px) {
-      .padrinos {
-        grid-template-columns: 1fr;
-      }
-      .contenedor p {
-        font-size: 18px;
-      }
-      .boton {
-        font-size: 18px;
-        padding: 12px 26px;
-      }
-      .titulo {
-        font-size: 32px;
-        margin-top: 25px;
-      }
-      h2 {
-        margin-top: 45px;
-        font-size: 1.6em;
-      }
     }
 
     /* Globos animados */
@@ -229,33 +234,40 @@
     }
     setInterval(crearGlobo, 800);
 
-    // Aparición secuencial padrinos con Intersection Observer
-    const padrinosSection = document.getElementById('padrinos');
-    const tarjetas = padrinosSection.querySelectorAll('.tarjeta');
+    // Animación aparición secuencial solo para desktop (>600px)
+    if (window.matchMedia("(min-width: 601px)").matches) {
+      const padrinosSection = document.getElementById('padrinos');
+      const tarjetas = padrinosSection.querySelectorAll('.tarjeta');
 
-    function mostrarTarjetasSecuencial() {
-      tarjetas.forEach((tarjeta, i) => {
-        setTimeout(() => {
-          tarjeta.classList.add('visible');
-        }, i * 300);
+      function mostrarTarjetasSecuencial() {
+        tarjetas.forEach((tarjeta, i) => {
+          setTimeout(() => {
+            tarjeta.classList.add('visible');
+          }, i * 300);
+        });
+      }
+
+      function ocultarTarjetas() {
+        tarjetas.forEach(tarjeta => tarjeta.classList.remove('visible'));
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            mostrarTarjetasSecuencial();
+          } else {
+            ocultarTarjetas();
+          }
+        });
+      }, { threshold: 0.3 });
+
+      observer.observe(padrinosSection);
+    } else {
+      // En móviles, mostrar todas las tarjetas sin animación
+      document.querySelectorAll('.tarjeta').forEach(tarjeta => {
+        tarjeta.classList.add('visible');
       });
     }
-
-    function ocultarTarjetas() {
-      tarjetas.forEach(tarjeta => tarjeta.classList.remove('visible'));
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          mostrarTarjetasSecuencial();
-        } else {
-          ocultarTarjetas();
-        }
-      });
-    }, { threshold: 0.3 });
-
-    observer.observe(padrinosSection);
 
     // Cuenta regresiva
     const countdownElement = document.getElementById('countdown');
