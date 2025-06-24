@@ -4,86 +4,88 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Invitación de Cumpleaños 🎉</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     body {
-      background: linear-gradient(135deg, #000000, #1a1a1a);
-      color: #fff;
-      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(135deg, #a0e9fd, #34d399);
+      color: #034d4d;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
       text-align: center;
       overflow-x: hidden;
-      position: relative;
       min-height: 100vh;
     }
 
     .titulo {
-      font-size: 40px;
-      color: #00fff7;
-      text-shadow: 0 0 15px #00fff7;
-      margin-top: 40px;
+      font-size: 42px;
+      font-weight: 700;
+      color: #014d4d;
+      margin-top: 50px;
+      text-shadow: 0 2px 6px rgba(3, 77, 77, 0.3);
     }
 
     .contenedor {
-      background: rgba(0, 0, 0, 0.4);
-      border: 2px solid #00fff7;
-      border-radius: 20px;
-      padding: 30px;
-      box-shadow: 0 0 15px #00fff7;
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 18px;
+      padding: 30px 25px;
       max-width: 700px;
       margin: 40px auto;
+      box-shadow: 0 8px 24px rgba(52, 211, 153, 0.3);
     }
 
     .contenedor p {
-      font-size: 22px;
-      margin: 12px 0;
+      font-size: 20px;
+      margin: 14px 0;
+      color: #034d4d;
+      font-weight: 500;
     }
 
     strong {
-      color: #00fff7;
+      color: #059669;
     }
 
     .boton {
       display: inline-block;
-      background: #00fff7;
-      color: #000;
-      padding: 15px 30px;
+      background: #059669;
+      color: white;
+      padding: 14px 32px;
       border-radius: 30px;
       font-size: 20px;
-      font-weight: bold;
+      font-weight: 600;
       text-decoration: none;
       margin-top: 20px;
-      box-shadow: 0 0 15px #00fff7;
-      transition: background 0.3s;
+      box-shadow: 0 5px 15px rgba(5, 150, 105, 0.6);
+      transition: background 0.3s ease;
     }
 
     .boton:hover {
-      background: #0ff;
+      background: #047857;
     }
 
     h2 {
       margin-top: 60px;
-      color: #ffccff;
-      text-shadow: 0 0 10px #ffccff;
+      font-weight: 700;
+      color: #059669;
+      text-shadow: 0 2px 8px rgba(5, 150, 105, 0.4);
     }
 
     .padrinos {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 18px;
       margin-top: 30px;
     }
 
     .tarjeta {
-      background: rgba(0, 0, 0, 0.6);
-      border: 2px solid #00fff7;
-      border-radius: 15px;
+      background: #d1fae5;
+      border-radius: 14px;
       padding: 15px;
-      box-shadow: 0 0 15px #00fff7;
+      box-shadow: 0 5px 15px rgba(3, 77, 77, 0.15);
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(25px);
       transition: opacity 0.5s ease, transform 0.5s ease;
+      cursor: default;
     }
 
     .tarjeta.visible {
@@ -92,28 +94,28 @@
     }
 
     .tarjeta:hover {
-      box-shadow: 0 0 25px #00fff7, 0 0 40px #00fff7;
-      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(3, 77, 77, 0.3);
+      transform: scale(1.07);
       cursor: pointer;
     }
 
     .foto {
       width: 100%;
-      border-radius: 12px;
+      border-radius: 10px;
       margin-bottom: 10px;
-      box-shadow: 0 0 10px #00fff7;
+      box-shadow: 0 3px 8px rgba(3, 77, 77, 0.2);
     }
 
     h3 {
-      color: #00fff7;
+      color: #034d4d;
       margin-bottom: 5px;
-      font-size: 1.2em;
+      font-size: 1.3em;
+      font-weight: 700;
     }
 
     p {
-      color: #ffccff;
+      color: #065f46;
       font-size: 1em;
-      text-shadow: 0 0 5px #ffccff;
       margin: 0;
     }
 
@@ -127,15 +129,15 @@
       }
       .boton {
         font-size: 18px;
-        padding: 12px 25px;
+        padding: 12px 26px;
       }
       .titulo {
-        font-size: 30px;
-        margin-top: 20px;
+        font-size: 32px;
+        margin-top: 25px;
       }
       h2 {
-        margin-top: 40px;
-        font-size: 1.5em;
+        margin-top: 45px;
+        font-size: 1.6em;
       }
     }
 
@@ -143,34 +145,34 @@
     .globo {
       position: fixed;
       bottom: -150px;
-      background: radial-gradient(circle at 30% 30%, #00fff7, #008080);
-      width: 40px;
-      height: 60px;
+      background: radial-gradient(circle at 30% 30%, #34d399, #059669);
+      width: 42px;
+      height: 62px;
       border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-      box-shadow: 0 0 10px #00fff7;
+      box-shadow: 0 0 12px #059669;
       animation: subir 10s linear infinite;
-      opacity: 0.8;
+      opacity: 0.85;
       z-index: 9999;
     }
     .globo::after {
       content: '';
       position: absolute;
-      bottom: -10px;
+      bottom: -12px;
       left: 50%;
-      width: 2px;
-      height: 15px;
-      background: #00fff7;
+      width: 3px;
+      height: 16px;
+      background: #047857;
       transform: translateX(-50%);
       border-radius: 2px;
-      box-shadow: 0 0 10px #00fff7;
+      box-shadow: 0 0 12px #047857;
     }
     @keyframes subir {
       0% {
         transform: translateY(0) scale(1);
-        opacity: 0.8;
+        opacity: 0.85;
       }
       100% {
-        transform: translateY(-110vh) scale(1.2);
+        transform: translateY(-110vh) scale(1.3);
         opacity: 0;
       }
     }
@@ -178,7 +180,7 @@
 </head>
 <body>
 
-  <div class="titulo">estás invitado a mi cumpleaños 🎉</div>
+  <div class="titulo">¡Estás invitado a mi cumpleaños! 🎉</div>
 
   <div class="contenedor">
     <p>📆 <strong>Fecha:</strong><br>26 de julio de 2025</p>
@@ -194,7 +196,7 @@
     <a class="boton" href="https://wa.me/5215561069597" target="_blank" rel="noopener noreferrer">Confirmar asistencia 🎟️</a>
 
     <h2>Cuenta regresiva ⏳</h2>
-    <div id="countdown" style="font-size: 32px; color: #00fff7; text-shadow: 0 0 10px #00fff7;"></div>
+    <div id="countdown" style="font-size: 32px; color: #059669; text-shadow: 0 0 10px #34d399;"></div>
 
     <h2>Padrinos 🌟</h2>
     <div class="padrinos" id="padrinos">
@@ -231,16 +233,24 @@
     const padrinosSection = document.getElementById('padrinos');
     const tarjetas = padrinosSection.querySelectorAll('.tarjeta');
 
+    function mostrarTarjetasSecuencial() {
+      tarjetas.forEach((tarjeta, i) => {
+        setTimeout(() => {
+          tarjeta.classList.add('visible');
+        }, i * 300);
+      });
+    }
+
+    function ocultarTarjetas() {
+      tarjetas.forEach(tarjeta => tarjeta.classList.remove('visible'));
+    }
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          tarjetas.forEach((tarjeta, i) => {
-            setTimeout(() => {
-              tarjeta.classList.add('visible');
-            }, i * 300);
-          });
+          mostrarTarjetasSecuencial();
         } else {
-          tarjetas.forEach(tarjeta => tarjeta.classList.remove('visible'));
+          ocultarTarjetas();
         }
       });
     }, { threshold: 0.3 });
@@ -249,7 +259,6 @@
 
     // Cuenta regresiva
     const countdownElement = document.getElementById('countdown');
-    // Fecha y hora del evento (26 julio 2025, 5:00 PM)
     const eventDate = new Date('2025-07-26T17:00:00');
 
     function actualizarCuentaRegresiva() {
